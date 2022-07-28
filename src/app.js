@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
+
 const router = express.Router()
 
 const MyMongoClient = require ('./config/mongoConnection');
@@ -34,13 +35,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-const {SESSION_SECRET} = process.env;
-app.use(session({
-  secret:SESSION_SECRET,
-  resave:true, 
-  saveUninitialized:true,
-  
-}));
+const sessionOptions = require ('./config/sessionOptions');
+app.use(session(sessionOptions));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser())

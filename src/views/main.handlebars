@@ -1,25 +1,22 @@
-<div class="container py-5" style="padding: 10px">
+<div class="container">
   <h2>PRODUCTS</h2>
-    <div id="contentCard" class="row row-cols-2 row-cols-md-4 g-4" style="padding: 10px">
+    <div id="contentCard" class="row row-cols-2 row-cols-5">
       {{#each products}}
-      <div id="card" class="card"  style="width: 18rem; margin:10px;">
-        <img src="{{this.thumbnail}}" class="card-img-top" alt="{{this.name}}"/>
+      <div id="card" class="card"  style="width: 15rem; margin:10px;">
+        <img src="{{this.thumbnail}}"  style ="width: auto" class="card-img-top" alt="{{this.name}}"/>
         <div class="card-body">
           <div class="text-center">
               <h5 class="card-title">{{this.name}}</h5>
               <p class="text-muted mb-4">{{this.description}}</p>
             </div>
           <div class="d-flex justify-content-between">
-                <span>Price:</span><span>${{this.price}}</span>
+                <span>Price:${{this.price}}</span>
               </div>
-              <div class="d-flex justify-content-between">
-                <span>Stock: </span><span>{{this.stock}}</span>
-              </div>
-                <div class="d-flex justify-content-between">
-                          <button id="add-to-cart" class="btn btn-dark" onclick="addToCart('{{{../cartId}}}', '{{this._id}}')">
-            Add to Cart <span id="addSpan" class="badge text-bg-secondary"></span>
-              </span>  
-          </button>
+          <div class="d-flex justify-content-between">
+                <span>Stock: {{this.stock}}</span>
+          </div>
+          <div class="d-flex justify-content-between" id="justify">
+                          <button id="add-to-cart" class="btn btn-dark btn-sm" onclick="addToCart('{{{../cartId}}}', '{{this._id}}')">Get it!</button>
               </div>
         </div>
       </div>

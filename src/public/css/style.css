@@ -18,3 +18,24 @@
     right: 28px;
     width: 350px;
 }
+
+.container {
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
+#add-to-cart{
+    align-items: center;
+}
+
+#contentCard{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#justify{
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}

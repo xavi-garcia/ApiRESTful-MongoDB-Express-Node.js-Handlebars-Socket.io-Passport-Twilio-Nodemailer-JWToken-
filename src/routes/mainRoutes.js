@@ -100,7 +100,7 @@ router.get('/logout', auth, function(req, res, next) {
       res.clearCookie("token");
       res.render("logout", { username });
     });
-  });
+});
 
 // GET Cart
 router.get('/cart', auth, async (req, res) => {
@@ -109,7 +109,13 @@ router.get('/cart', auth, async (req, res) => {
         const cart = await cartSchema.findOne({ user: userId._id.toString()}).lean();
         const products = await Promise.all(cart.products.map(pId => productSchema.findById(pId).lean()));
         const total = products.reduce((total, prod) => total + prod.price, 0);
-        res.render('cart', { cartId: cart._id, products, total});
+        if(products.length === 0){
+            res.render('emptyCart')
+
+        } else {
+            res.render('cart', { cartId: cart._id, products, total});
+        }
+
     } catch (error) {
         logger.error(error)
         res.status(500).send(error)

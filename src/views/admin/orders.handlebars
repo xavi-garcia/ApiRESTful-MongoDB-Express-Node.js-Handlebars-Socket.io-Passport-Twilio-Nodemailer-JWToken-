@@ -1,5 +1,5 @@
 <div class="container mx">
-  <h2>Orders</h2>
+  <h2 class="bg-dark" id="headings">Orders</h2>
       <table class="table table-sm table-hover">
         <thead class="thead-dark">
             <tr>
@@ -23,17 +23,17 @@
              <td>{{this.address}}</td>
               <td>        
                 <div class="d-grid gap-2 col-1 mx-auto">
-                  <button class="btn btn-dark" type="button" onclick="sendOrder('{{this._id}}')">Send</button>
+                  <button class="btn btn-dark btn-lg" type="button" onclick="sendOrder('{{this._id}}')">Send</button>
                 </div>
               </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <button class="btn btn-dark" type="button" onclick="deleteAllOrders()">Delete All</button>
+  <div class="d-grid gap-2 col-2 mx-auto">
+    <button class="btn btn-dark" type="button"  id="buttonPlaceOrder"onclick="deleteAllOrders()">Delete All</button>
   </div>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <a href="/admin" class="btn btn-dark" type="button">Back</a>
+  <div class="d-grid gap-2 col-2 mx-auto">
+    <a href="/admin" class="btn btn-dark" id="buttonPlaceOrder" type="button">Back</a>
   </div>
 </div>

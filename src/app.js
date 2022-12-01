@@ -58,7 +58,7 @@ app.use("/api/products", prodRouter);
 app.use("/api/users", userRouter);
 app.use("/", mainRouter);
 app.use("/info", infoRouter);
-app.use('/api/chat', chatRouter);
+// app.use('/api/chat', chatRouter);
 app.use('/api/orders', orderRouter);
 
 //Connection
@@ -69,14 +69,14 @@ let client = new MyMongoClient();
 client.connect();
 
 // Socket connection
-io.on("connection", async (socket) => {
-    socket.on("message", async (data) => {
-      const message = await chatSchema.create(data);
-      return message;
-    });
+// io.on("connection", async (socket) => {
+//     socket.on("message", async (data) => {
+//       const message = await chatSchema.create(data);
+//       return message;
+//     });
   
-    const messages = await chatSchema.find();
-    io.sockets.emit("messages", messages);
-})
+//     const messages = await chatSchema.find();
+//     io.sockets.emit("messages", messages);
+// })
 
 

@@ -1,6 +1,6 @@
 <div class="container mx">
-  <h2>Products</h2>
-        <div class="d-grid gap-2 col-6 mx-auto">
+  <h2 class="bg-dark" id="headings">Products</h2>
+        <div class="d-grid gap-2 col-2 mx-auto">
             <a href="/admin/addProduct" class="btn btn-outline-dark" type="button">Add Product</a>
         </div>
       <table class="table table-sm table-hover">
@@ -27,12 +27,12 @@
               <td>{{this.stock}}</td>
               <td>{{this.code}}</td>
               <td>{{this.category}}</td>
-              <td><a href="/admin/updateProduct/{{this._id}}" class="btn btn-outline-dark" type="button">Update Product</a></td>
+              <td><a href="/admin/updateProduct/{{this._id}}" class="btn btn-outline-dark" id="buttonPlaceOrder" type="button">Update Product</a></td>
             </tr>
             {{/each}}
         </tbody>
     </table>
-  <div class="d-grid gap-2 col-6 mx-auto">
+  <div class="d-grid gap-2 col-2 mx-auto">
     <a href="/admin" class="btn btn-dark" type="button">Back</a>
   </div>
 </div>

@@ -9,7 +9,6 @@ const loggersConfig = require('../config/logger');
 const logger = log4js.getLogger();
 
 
-
 module.exports = {
 
     index: (req, res) => {
@@ -35,6 +34,11 @@ module.exports = {
 
     getOrders: async (req, res) => {
         const orders = await orderSchema.find().lean()
-        res.render("admin/orders", { orders } )
+        if(orders.length === 0){
+            res.render("admin/noOrders")
+        } else {
+             res.render("admin/orders", { orders } )
+        }
+       
     }
 }
